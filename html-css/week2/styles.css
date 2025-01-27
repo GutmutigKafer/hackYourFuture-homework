@@ -632,8 +632,13 @@ html {
   .tabs {
     width: 100%;
     white-space: nowrap;
+<<<<<<< HEAD
     overflow-x: auto !important;
     margin-right: 5px !important;
+=======
+    overflow-x: auto;
+    margin-right: 5px;
+>>>>>>> origin/main
     left: 50%;
     transform: translateX(-30%);
   }
