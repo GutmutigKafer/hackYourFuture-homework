@@ -630,10 +630,10 @@ html {
   
 
   .tabs {
-    width: 100% !important;
-    white-space: nowrap !important;
-    overflow-x: auto !important;
-    margin-right: 5px !important;
+    width: 100%;
+    white-space: nowrap;
+    overflow-x: auto;
+    margin-right: 5px;
     left: 50%;
     transform: translateX(-30%);
   }
