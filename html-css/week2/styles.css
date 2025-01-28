@@ -576,8 +576,8 @@ html {
 
   html {
 
-    width: 0 !important;
-    height: 0 !important;
+    width: 0;
+    height: 0;
   }
 
 
@@ -632,8 +632,8 @@ html {
   .tabs {
     width: 100%;
     white-space: nowrap;
-    overflow-x: auto;
-    margin-right: 5px;
+    overflow-x: auto !important;
+    margin-right: 5px !important;
     left: 50%;
     transform: translateX(-30%);
   }
