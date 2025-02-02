@@ -1,7 +1,7 @@
 let myName = "Vlad"
 console.log(myName)
 
-let myAge = 25
+let myAge = 27
 console.log(myAge)
 
 const computer = "Macbook Pro"
@@ -29,3 +29,13 @@ if (modulo === 5) {
 } else {
     console.log("Modulo is not 5")
 }
+
+if (myAge === 25) {
+    console.log("True")
+}
+    else if (myAge > 25) {
+        console.log("More than 25")
+    }
+    else {
+        console.log("Less than 25")
+    }
