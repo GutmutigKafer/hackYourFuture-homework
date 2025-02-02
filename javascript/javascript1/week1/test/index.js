@@ -23,3 +23,9 @@ console.log(myTeam[2])
 
 let modulo = 61 % 8
 console.log(modulo)
+
+if (modulo === 5) {
+    console.log("Modulo is 5")
+} else {
+    console.log("Modulo is not 5")
+}
