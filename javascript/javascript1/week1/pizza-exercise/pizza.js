@@ -100,11 +100,23 @@
     console.log(dataArray[3]);
     console.log(myName[myName.length -1]);
 
-    /* console.log(myName.slice [-1]);  */
+    /* console.log(myName.slice [-1]);  - gets the last letter too */
 
     
     
     
+    let name = 'benjamin';
+    name = 'benjamin-better';
+    
+    const pizzaPrice = 78;
+    const pizzaPriceDiscounted = pizzaPrice - 10;
+    
+    const users = ['peter', 'Johnny', 'Børge'];
+    
+    const lastUser = users[2];
+
+
+
     
     
 
