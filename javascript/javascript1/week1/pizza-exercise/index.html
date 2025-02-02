@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizza exercise</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffe5b4;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #d35400;
+        }
+
+        .order-form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+        }
+
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="number"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .order-summary {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            border: 2px dashed #d35400;
+        }
+
+        button {
+            background-color: #e74c3c;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #c0392b;
+        }
+    </style>
+<script src="./pizza.js"></script>
+
+</head>
+<body>
+    <h1>🍕 Pizza Order Form 🍕</h1>
+    <div class="order-form">
+        <label for="pizzaName">Pizza Name:</label>
+        <input type="text" id="pizzaName" placeholder="Enter pizza name">
+
+        <label for="pizzaPrice">Price ($):</label>
+        <input type="number" id="pizzaPrice" placeholder="Enter price" min="0">
+        
+        <label for="pizzaQuantity">Quantity:</label>
+        <input type="number" id="pizzaQuantity" placeholder="Enter quantity" min="1">
+
+        <label>
+            <input type="checkbox" id="familySize"> Family Size (Double Price)
+        </label>
+
+        <button onclick="placeOrder()">Place Order</button>
+    </div>
+
+    <div class="order-summary" id="orderSummary"></div>
+    
+</body>
+</html>
