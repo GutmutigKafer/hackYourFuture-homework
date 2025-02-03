@@ -52,4 +52,6 @@ const randomNumber2 = Math.floor(Math.random() * 10);
 
 let startupName = firstWords[randomNumber1] + " " + secondWords[randomNumber2];
 
-console.log(startupName);
+let startupNameLength = startupName.length;
+
+console.log("Your new startup name is: " + startupName + ". It contains " + startupNameLength + " characters");
