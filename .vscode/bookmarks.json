@@ -1,0 +1,39 @@
+{
+	"files": [
+		{
+			"path": "javascript/javascript1/week1/homework-week1.js",
+			"bookmarks": [
+				{
+					"line": 0,
+					"column": 10,
+					"label": ""
+				},
+				{
+					"line": 22,
+					"column": 8,
+					"label": ""
+				},
+				{
+					"line": 43,
+					"column": 0,
+					"label": ""
+				}
+			]
+		},
+		{
+			"path": "javascript/javascript1/week1/test/learning-js.js",
+			"bookmarks": [
+				{
+					"line": 30,
+					"column": 0,
+					"label": ""
+				},
+				{
+					"line": 193,
+					"column": 1,
+					"label": ""
+				}
+			]
+		}
+	]
+}

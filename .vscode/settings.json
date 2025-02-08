@@ -1,0 +1,64 @@
+{
+    "workbench.colorCustomizations": {
+        "activityBar.activeBackground": "#1e2f2f",
+        "activityBar.background": "#1e2f2f",
+        "activityBar.foreground": "#e7e7e7",
+        "activityBar.inactiveForeground": "#e7e7e799",
+        "activityBarBadge.background": "#754b75",
+        "activityBarBadge.foreground": "#e7e7e7",
+        "sash.hoverBorder": "#1e2f2f",
+        "sideBar.border": "#1e2f2f",
+        "tab.activeBorder": "#1e2f2f"
+    },
+    "peacock.color": "#0a1010",
+    "peacock.favoriteColors": [
+
+        {    
+            "name": "Personal Dark Blue",
+            "value": "#0a1010"
+        },
+
+
+        {
+            "name": "Personal Dark Red",
+            "value": "#33010d"
+        },
+        {
+            "name": "Personal Dark Blue",
+            "value": "#001a33"
+        },
+        {
+            "name": "Personal Dark Yellow",
+            "value": "#3d3612"
+        },
+        {
+            "name": "Personal Mandalorian Blue",
+            "value": "#061529"
+        },
+        {
+            "name": "Personal Dark Green",
+            "value": "#09150d"
+        },
+        {
+            "name": "Personal React Blue",
+            "value": "#102832"
+        },
+        {
+            "name": "Personal Purple Dark",
+            "value": "#1e0917"
+        },
+        {
+            "name": "Personal Dark Orange",
+            "value": "#400f00"
+        },
+        {
+            "name": "Personal Vue Green",
+            "value": "#112820"
+        }
+    ],
+    "peacock.affectSideBarBorder": true,
+    "peacock.affectStatusAndTitleBorders": true,
+    "peacock.affectTabActiveBorder": true,
+    "peacock.darkenLightenPercentage": 10,
+    "peacock.darkForegroundColor": ""
+}
