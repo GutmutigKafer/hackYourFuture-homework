@@ -1,5 +1,5 @@
 // Lesson
-/*
+
 const user1 = {
 
     userName: 'Vlad', 
@@ -85,8 +85,7 @@ Car.isElectric = false;
 
 console.log(Car);
 
-*/
-/* const winners = ["Michael", "Brian", "Ana", "Ana", "Niels", "Ana", "Brian", "ChatGPT 4.0", "ChatGPT 4.0"];
+ const winners = ["Michael", "Brian", "Ana", "Ana", "Niels", "Ana", "Brian", "ChatGPT 4.0", "ChatGPT 4.0"];
 
 console.log(countWinners("Ana"));
 console.log(countWinners("Brian"));
@@ -119,12 +118,12 @@ for (let i = 0; i < winners.length; i++) {
 return histo;
 }
 
-console.log(histogram()) */
+console.log(histogram()) 
 
 
 //ARRAYS
 
-/* 
+
 let arrayOfNumbers = [8, 12, 34, 7, 22];
 
 arrayOfNumbers.push(17);
@@ -165,9 +164,9 @@ console.log(shoppingCart);
 console.log(fruits);
 
 // what's in fruits?
-console.log(fruits.length); */
+console.log(fruits.length); 
 
-/* // call stack
+// call stack
 function wakeUp() {
 console.log('I wake up');
 }
@@ -201,7 +200,7 @@ function getReadyForWork() {
     brushMyTeeth();
 }
 getReadyForWork();
- */
+ 
 
 
 
@@ -209,7 +208,7 @@ getReadyForWork();
 
 
 
-/* 
+
 function bookPlaneTickets() {
     // what is stack here?
     console.log("Plane tickets booked");
@@ -238,12 +237,12 @@ function bookPlaneTickets() {
     bookHotel();
     console.log("Trip planned");
   }
-   */
+   
   // what is stack here?
 
 
 
-/* 
+
   const car = {
     brand: "Toyota",
     model: "Corolla",
@@ -257,7 +256,7 @@ function bookPlaneTickets() {
   }
   console.log(car);
   car.accelerate();
-  console.log(car); */
+  console.log(car); 
 
 
   //METHODS
