@@ -14,7 +14,7 @@ let activities = [];
  * 
  */
 function addActivity(date, activity, duration){
-    activities.push({date, activity, duration,})
+    activities.push({date, activity, duration})
 
 return activities;
 }
@@ -26,10 +26,11 @@ addActivity('16.02.22', 'TikTok', 50);
 console.log(activities);
 
 /* Create a function called showStatus. This function should use the activities variable and return a string saying the following: "You have added 3 activities. They amount to 78 min. of usage" */
-let timeCount = 0;
+
 let timeLimit = 90;
 function showStatus(activities){
     if (activities.length !== 0){
+        let timeCount = 0;
     let count = activities.length;
     for (let activity of activities){
         timeCount += activity.duration;

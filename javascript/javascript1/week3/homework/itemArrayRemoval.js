@@ -11,6 +11,7 @@ const names = [
   "Samuel",
   "katrine",
   "Tala",
+  "Ahmad",
 ];
 const nameToRemove = "Ahmad";
 
@@ -19,12 +20,9 @@ function removeName() {
   for (let i = 0; i < names.length; i++) {
     if (names[i] === nameToRemove) {
       names.splice(i, 1);
-      return names;
     }
   }
   return names;
 }
-removeName();
-// Code done
 
-console.log(names); // ['Peter', 'Yana', 'kristina', 'Rasmus', 'Samuel', 'katrine', 'Tala']
+console.log(removeName());

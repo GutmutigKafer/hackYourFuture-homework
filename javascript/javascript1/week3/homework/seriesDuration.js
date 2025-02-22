@@ -49,7 +49,6 @@ function seriesOfMyLife() {
 
   let totalPercentage = ((totalMinutes / minutesInLife) * 100).toFixed(4);
   console.log(`In total that is ${totalPercentage}% of my life`);
-  return totalPercentage;
 }
 
 seriesOfMyLife();

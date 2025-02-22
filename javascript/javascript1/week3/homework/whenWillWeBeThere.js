@@ -10,6 +10,7 @@ const travelInformation = {
 };
 
 function travelInfoToTime() {
+  if (travelInformation.speed === 0) return "Speed ​​can't be zero!";
   let time = travelInformation.destinationDistance / travelInformation.speed;
   let hours = Math.floor(time);
   let minutes = Math.floor(time * 60 - hours * 60);
