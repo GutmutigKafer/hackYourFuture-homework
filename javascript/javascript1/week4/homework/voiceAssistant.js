@@ -3,12 +3,12 @@
 let helloCount = 0;
 let currentName = "";
 let toDoList = [];
+let listLength = toDoList.length;
+
 function getReply(command) {
   // Hello
-  if (
-    command.toLowerCase().includes("hello") ||
-    command.toLowerCase().includes("my name is")
-  ) {
+  const commandLower = command.toLowerCase();
+  if (commandLower.includes("hello") || commandLower.includes("my name is")) {
     let newName = command.split(" ").pop();
     if (newName === currentName) {
       helloCount++;
@@ -26,7 +26,7 @@ function getReply(command) {
 
   // What name
 
-  if (command.toLowerCase().includes("what is my name")) {
+  if (commandLower.includes("what is my name")) {
     if (currentName === "") {
       return "I don't know your name";
     }
@@ -35,61 +35,49 @@ function getReply(command) {
 
   // Add to ToDo
 
-  if (
-    command.toLowerCase().includes("add") ||
-    command.toLowerCase().includes("to my todo")
-  ) {
-    let allWords = command.split(" ");
-    let task = allWords.slice(1, allWords.indexOf("to")).join(" ");
-    let taskUpper = task.charAt(0).toUpperCase() + task.slice(1).trim();
-    toDoList.push(taskUpper);
-    return `~${taskUpper}~ added to your ToDo list`;
+  if (commandLower.includes("add") || commandLower.includes("to my todo")) {
+    let indexName = "to";
+    let taskNameVar = taskName(indexName);
+    toDoList.push(taskNameVar);
+    return `~${taskNameVar}~ added to your ToDo list`;
   }
 
   // Remove from ToDo
 
   if (
-    command.toLowerCase().includes("remove") ||
-    command.toLowerCase().includes("from my todo")
+    commandLower.includes("remove") ||
+    commandLower.includes("from my todo")
   ) {
-    let allWords = command.split(" ");
-    let task = allWords.slice(1, allWords.indexOf("from")).join(" ");
-    let taskUpper = task.charAt(0).toUpperCase() + task.slice(1).trim();
-    for (let i = 0; i < toDoList.length; i++) {
-      if (toDoList[i] === taskUpper) {
+    let indexName = "from";
+    let taskNameVar = taskName(indexName);
+    for (let i = 0; i < listLength; i++) {
+      if (toDoList[i] === taskNameVar) {
         toDoList.splice(i, 1);
       }
     }
-    return `Removed ~${taskUpper}~ from your ToDo list`;
+    return `Removed ~${taskNameVar}~ from your ToDo list`;
   }
 
   // What is on ToDo
   if (
-    command.toLowerCase().includes("what is on") ||
-    command.toLowerCase().includes("on my todo")
+    commandLower.includes("what is on") ||
+    commandLower.includes("on my todo")
   ) {
     if (toDoList === "") {
       return `There is nothing on your ToDo list`;
     } else {
-      let listLength = toDoList.length;
-      if (listLength === 1) {
-        return `You have ${listLength} ToDo on the list: ${toDoList[0]}`;
-      } else if (listLength === 2) {
-        return `You have ${listLength} ToDo's on the list: ${toDoList[0]} and ${toDoList[1]}`;
-      } else {
-        return `You have ${listLength} ToDo's on the list: ${toDoList.join(
-          ", "
-        )}`;
-      }
+      return `You have ${listLength} ToDo's on the list: ${
+        listLength === 2 ? toDoList.join(" and ") : toDoList.join(", ")
+      }`;
     }
   }
 
   // What day is it today
 
   if (
-    command.toLowerCase().includes("what day") ||
-    command.toLowerCase().includes("date") ||
-    command.toLowerCase().includes("today")
+    commandLower.includes("what day") ||
+    commandLower.includes("date") ||
+    commandLower.includes("today")
   ) {
     let todayDate = new Date();
     let day = new Intl.DateTimeFormat("en", { day: "numeric" }).format(
@@ -107,7 +95,7 @@ function getReply(command) {
 
   // Simple math
 
-  if (command.toLowerCase().includes("what is")) {
+  if (commandLower.includes("what is")) {
     let allWords = command.split(" ");
     let expression = allWords.slice(2).join(" ");
     try {
@@ -120,18 +108,19 @@ function getReply(command) {
   //Set a timer
 
   if (
-    command.toLowerCase().includes("set a timer") ||
-    command.toLowerCase().includes("timer for")
+    commandLower.includes("set a timer") ||
+    commandLower.includes("timer for")
   ) {
     let allWords = command.split(" ");
     let timeNumber = allWords.slice(allWords.indexOf("for") + 1, -1);
     let timeWord = allWords.slice(-1).join("");
+    let timeWordLower = timeWord.toLowerCase();
     let calcMultiplier = 1;
-    if (timeWord.toLowerCase().includes("sec")) {
+    if (timeWordLower.includes("sec")) {
       calcMultiplier = 1000;
-    } else if (timeWord.toLowerCase().includes("min")) {
+    } else if (timeWordLower.includes("min")) {
       calcMultiplier = 60000;
-    } else if (timeWord.toLowerCase().includes("hour")) {
+    } else if (timeWordLower.includes("hour")) {
       calcMultiplier = 360000;
     }
     let timerDuration = timeNumber * calcMultiplier;
@@ -144,6 +133,15 @@ function getReply(command) {
     setTimeout(doneTimer, timerDuration);
 
     return `Timer set for ${timeNumber} ${timeWord}`;
+  }
+
+  //Additional functions
+
+  function taskName(indexWord) {
+    let allWords = command.split(" ");
+    let task = allWords.slice(1, allWords.indexOf(indexWord)).join(" ");
+    let taskUpper = task.charAt(0).toUpperCase() + task.slice(1).trim();
+    return taskUpper;
   }
 }
 
