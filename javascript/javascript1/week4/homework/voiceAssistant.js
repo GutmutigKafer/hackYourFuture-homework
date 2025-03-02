@@ -63,7 +63,7 @@ function getReply(command) {
     commandLower.includes("what is on") ||
     commandLower.includes("on my todo")
   ) {
-    if (toDoList === "") {
+    if (toDoList == "") {
       return `There is nothing on your ToDo list`;
     } else {
       return `You have ${listLength} ToDo's on the list: ${
@@ -150,6 +150,7 @@ console.log(getReply("my name is Vlad"));
 console.log(getReply("Hello, i am Vlad"));
 console.log(getReply("Hi, my name is John"));
 console.log(getReply("What is my name?"));
+console.log(getReply("What is on my todo"));
 console.log(getReply("Add fishing to my todo"));
 console.log(getReply("Add singing in the shower to my todo"));
 console.log(toDoList);
@@ -164,4 +165,4 @@ console.log(getReply("Add cook some food to my todo"));
 console.log(getReply("on my todo"));
 console.log(getReply("what is 3 * 6"));
 console.log(getReply("what is 10.73 * 6.3 / 3.6 - 2.2 + 17.376 % 7.4"));
-console.log(getReply("Set a timer for 4 minutes"));
+console.log(getReply("Set a timer for 10 seconds"));
