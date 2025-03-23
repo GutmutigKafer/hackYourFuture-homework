@@ -135,5 +135,6 @@ fetch('https://yesno.wtf/api/')
         document.body.appendChild(YesNo)
         console.log(YesNo);
       })
+      
 
     
