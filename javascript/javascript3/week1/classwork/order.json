@@ -1,0 +1,29 @@
+{
+       "order1" : {   
+        "order-name" : "Big Mac",
+            "order-id" : 1,
+            "order-price" : 5.99,
+            "list-of-drinks" : ["Coke", "Fanta"],
+            "order-extras" : { "cheese" : true, "lettuce" : false, "tomato" : false } 
+        },
+        "order2" : {  
+            "order-name" : "Double Cheeseburger",
+            "order-id" : 2,
+            "order-price" : 6.99,
+            "list-of-drinks" : ["Fanta", "Sprite"],
+            "order-extras" : [
+                { "fries" : false,
+                  "price" : 1.99,
+                  "size" : "large"
+                }, 
+                {"souce" : false,
+                  "price" : 0.99,
+                  "size" : "small",
+                  "taste" : "barbeque"
+                }, 
+                { "napkins" : false,
+                  "price" : 0.05,
+                  "amount" : 2
+                }]
+        }
+}

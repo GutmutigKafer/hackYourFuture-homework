@@ -120,9 +120,9 @@ collegues: ["Esther", "Alberte", "Maria"]
 let personJSON = JSON.stringify(person);
 let personParse = JSON.parse(personJSON);
 
-// console.log(personJSON);
-// console.log(personParse);
-// console.log(personParse.address.street);
+console.log(personJSON);
+console.log(personParse);
+console.log(personParse.address.street);
 
 
 
