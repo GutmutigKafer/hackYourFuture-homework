@@ -34,6 +34,7 @@ function readFileCallback2(path) {
 //   .catch((error) => console.error(error));
 
 //Callback to Promise
+
 function loginUserCallback(email, password, callback) {
   setTimeout(() => {
     if (email && password) {
@@ -46,16 +47,30 @@ function loginUserCallback(email, password, callback) {
 
 function loginUserPromise(email, password) {
   return new Promise((resolve, reject) => {
-    setTimeout(() => {
+    loginUserCallback(email, password, (error, result) => {
       if (email && password) {
-        resolve({ user: email, token: "abc123" });
+        resolve(result);
       } else {
-        reject("Email or password missing");
+        reject(error);
       }
-    }, 1000);
+    });
   });
 }
+// loginUserPromise("hello@email.com", "26172")
+//   .then((user) => console.log("Logged in:", user))
+//   .catch((error) => console.error("Error:", error));
 
-loginUserPromise("hello@email.com", "26172")
-  .then((user) => console.log("Logged in:", user))
-  .catch((error) => console.error("Error:", error));
+// HTTP GET Request
+const httpGet = async (url) => {
+  try {
+    const response = await fetch(url);
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+    const data = await response.json();
+    return console.log(`Fetched data`, data);
+  } catch (error) {
+    console.log("Error:", error.message);
+  }
+};
+httpGet("https://jsonplaceholder.typicode.com/posts/1");
