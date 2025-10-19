@@ -1,0 +1,268 @@
+body {
+  position: relative;
+  background-color: #242537;
+  font-size: 16px;
+  font-family: "Segoe UI", Tahoma, sans-serif;
+}
+
+header {
+  position: sticky;
+  background-color: #202133;
+  top: 0;
+  margin: 0;
+  padding: 1em 1em 0.5em 1em;
+  box-shadow: 0px 0px 4px #ab9390;
+  z-index: 3;
+}
+
+h1 {
+  color: #fdfdfd;
+  font-size: 1.1em;
+  margin: 0;
+  white-space: nowrap;
+  letter-spacing: 1px;
+}
+
+span {
+  color: #ea5a5d;
+  font-size: 1.4em;
+}
+
+p {
+  color: #cebab7;
+  font-size: 1em;
+  margin: 0.7em 0;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+}
+
+.article {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 1em;
+  padding: 0.5em;
+  background-color: transparent;
+  text-align: left;
+}
+
+.article h3 {
+  align-self: center;
+  margin: 0.7em 1em;
+  color: #fdfdfd;
+  text-shadow: #202133 2px 2px 3px;
+  font-size: 1.3em;
+  letter-spacing: 2px;
+}
+
+.article img {
+  width: 90%;
+  height: auto;
+  border-radius: 0.5em;
+  box-shadow: 0px 0px 4px #ab9390;
+  border: 0.5px solid #ab9390;
+}
+
+.article p {
+  margin: 1em 1.5em 0.5em 1.5em;
+  color: #fdfdfd;
+}
+
+aside {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1.5em 1em;
+  padding: 0 1em;
+  background-color: #202133;
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
+  border-radius: 0.5em;
+  border: 0.5px solid #ea5a5d;
+  transition: all 0.2s ease-in-out;
+}
+
+aside:hover {
+  transform: scale(1.03);
+}
+.about {
+  max-width: 70%;
+}
+
+aside h2 {
+  font-size: 1.3em;
+  color: #fdfdfd;
+  letter-spacing: 2px;
+}
+
+aside p {
+  font-size: 0.9em;
+  padding-right: 1em;
+  margin-bottom: 1em;
+}
+.links {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 30%;
+  padding: 0 1em 0 0;
+}
+
+aside img {
+  width: 30px;
+  margin: 0.5em;
+}
+
+aside img:hover {
+  filter: brightness(50%);
+}
+
+li {
+  list-style: none;
+}
+
+.previous-posts {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 1em;
+  padding: 0 1em;
+}
+
+.previous-posts h2 {
+  align-self: center;
+  margin: 0 0;
+  color: #fdfdfd;
+  text-shadow: #202133 2px 2px 3px;
+  letter-spacing: 2px;
+  font-size: 1.3em;
+}
+
+.previous-posts ul {
+  padding: 0;
+}
+
+.blog-post {
+  position: relative;
+  background-color: #202133;
+  border-radius: 0.5em;
+  padding: 0.5em 1em;
+  margin: 1em 0;
+  box-shadow: 0px 0px 2px #ab9390;
+  z-index: 1;
+}
+.blog-post:hover {
+  border: 1px solid #ea5a5d;
+}
+
+.blog-post a {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px;
+  color: #fdfdfd;
+  text-decoration: none;
+  letter-spacing: 2px;
+}
+
+.blog-post:hover > a {
+  color: #ea5a5d;
+  margin: 9px;
+}
+.blog-post:hover > a > img {
+  filter: brightness(60%) saturate(100%) sepia(70%) hue-rotate(200deg);
+}
+.previous-posts img {
+  max-width: 80vw;
+  border-radius: 0.5em;
+  margin: 1em 0;
+  box-shadow: 0px 0px 4px #ab9390;
+}
+
+footer {
+  background-color: #202133;
+  margin: 0.5em 0 0 0;
+  padding: 0.2em;
+  z-index: 3;
+  text-align: center;
+  color: #cebab7;
+  font-size: 0.9em;
+}
+
+@media (min-width: 800px) {
+  main {
+    flex-direction: row;
+    justify-content: space-around;
+  }
+  .info {
+    max-width: 70%;
+  }
+  .article {
+    max-width: 100%;
+    margin: 0 1em;
+  }
+
+  .article h3 {
+    font-size: 1.8em;
+    margin: 0.5em 1.5em;
+    align-self: flex-start;
+  }
+  .article p {
+    font-size: 1.1em;
+    margin: 1em 1.5em 0.5em 2.2em;
+  }
+  aside {
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 0 2em;
+  }
+
+  .links {
+    flex-direction: row;
+    justify-content: space-between;
+    align-self: center;
+  }
+  .links img {
+    width: 40px;
+  }
+
+  .about h2 {
+    font-size: 2em;
+    margin: 0.5em 0;
+  }
+
+  .about p {
+    font-size: 1.2em;
+  }
+
+  .previous-posts {
+    align-items: flex-start;
+    justify-content: flex-start;
+    max-width: 20%;
+    margin: 1em;
+  }
+  .previous-posts h2 {
+    align-self: center;
+    margin: 0.5em 0 0 0;
+  }
+
+  .previous-posts ul {
+    margin: 0;
+  }
+  .previous-posts li {
+    width: 100%;
+  }
+  .blog-post {
+    max-width: 100%;
+  }
+
+  .previous-posts img {
+    max-width: 80%;
+  }
+}
