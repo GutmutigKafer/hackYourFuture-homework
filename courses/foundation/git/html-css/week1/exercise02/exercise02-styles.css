@@ -1,0 +1,67 @@
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 18px;
+  background-color: rgb(209, 234, 223);
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  max-width: 40%;
+}
+
+table {
+  margin: 2em 0 0.3em 0;
+  background-color: rgb(245, 254, 249);
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
+  border-collapse: collapse;
+}
+
+thead {
+  background-color: rgb(64, 91, 73);
+  color: rgb(255, 255, 255);
+  border: 2px solid rgb(15, 15, 15);
+  font-variant: small-caps;
+}
+
+tbody {
+  border: 2px solid rgb(15, 15, 15, 0.3);
+}
+
+tbody tr:nth-child(odd) {
+  background-color: rgba(228, 233, 207, 0.798);
+}
+
+th,
+td {
+  padding: 1em;
+  font-size: 0.9em;
+  border: 1px dotted rgb(15, 15, 15, 0.4);
+}
+
+caption {
+  display: flex;
+  text-align: start;
+}
+
+p {
+  margin-top: 0;
+  font-size: 0.8em;
+  padding: 0 0.5em;
+  font-style: italic;
+  color: rgb(15, 15, 15, 0.7);
+}
+
+.name {
+  font-weight: 600;
+}
+
+.yes {
+  color: green;
+}
+.no {
+  color: red;
+}
