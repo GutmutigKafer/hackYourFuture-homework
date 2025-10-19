@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="exercise03-styles.css" />
+    <title>Contact Form</title>
+  </head>
+  <body>
+    <div class="form-container">
+      <h3>Contact Form</h3>
+      <form>
+        <div class="name-inputs">
+          <div class="form-input">
+            <label for="title">Title</label>
+            <div class="select-wrapper">
+              <button type="button" class="select-arrow">&#x2304;</button>
+              <select name="title" id="title">
+                <option value="mr">Mr</option>
+                <option value="ms">Ms</option>
+                <option value="mrs">Mrs</option>
+                <option value="miss">Miss</option>
+                <option value="dr">Dr</option>
+                <option value="sir">Sir</option>
+                <option value="lady">Lady</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-input">
+            <label for="first-name">First Name</label>
+            <input
+              class="name"
+              id="first-name"
+              type="text"
+              placeholder="First Name"
+              required
+            />
+          </div>
+          <div class="form-input">
+            <label for="last-name">Last Name</label>
+            <input
+              class="name"
+              id="last-name"
+              type="text"
+              placeholder="Last Name"
+              required
+            />
+          </div>
+        </div>
+        <div class="form-input">
+          <label for="email">Email</label>
+          <input
+            class="email"
+            id="email"
+            type="text"
+            placeholder="abcabc@email.com"
+            required
+          />
+        </div>
+
+        <div class="form-input">
+          <label for="message">You message</label
+          ><textarea
+            rows="3"
+            class="message"
+            id="message"
+            type="text"
+            placeholder="Your message"
+          ></textarea>
+        </div>
+        <div class="button">
+          <button type="submit">Submit</button>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
