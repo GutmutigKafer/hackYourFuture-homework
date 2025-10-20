@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <head>
+    <title>Order Page</title>
+    <link rel="stylesheet" type="text/css" href="./styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <main>
+      <header>
+        <h1>Payment page</h1>
+        <p>Choose your payment method</p>
+      </header>
+
+      <section class="order-section">
+        <div class="order-summary">
+          <h3>Order Summary</h3>
+          <div class="line-item">
+            <span class="total">Total</span>
+            <span class="amount">$333 / month</span>
+          </div>
+          <div class="divider"></div>
+
+          <div class="line-item">
+            <span class="total"><b>Total</b></span>
+            <span class="amount"><b>$100</b></span>
+          </div>
+        </div>
+
+        <div class="payment-methods section">
+          <h3>Payment method</h3>
+          <div class="payment-method-list">
+            <div class="payment-method-item">
+              <img
+                src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%2Fid%2FOIP.WfgkmEeKLigRBUf6bEUGUAHaBm%3Fcb%3D12%26pid%3DApi&f=1&ipt=0fabf35f48e89aeb8674d2bb3688a4cebd68613830ebf22d18cb787fd10bc312&ipo=images"
+                width="138px"
+                height="auto"
+                alt="cards-accepted"
+              />
+              <p class="montserrat-600">Credit / Debit</p>
+            </div>
+            <div class="payment-method-item">
+              <img
+                src="https://freelogopng.com/images/all_img/1655980011paypal-icon-transparent.png"
+                width="28px"
+                height="auto"
+                alt="paypal-logo"
+              />
+              <p class="montserrat-600">PayPal</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-info section">
+          <h3>Card Info</h3>
+          <div class="all-inputs">
+            <div class="input-container number">
+              <p class="montserrat-600">Card Number</p>
+              <img
+                class="icon"
+                src="https://img.icons8.com/ios-filled/100/5d616a/help.png"
+                alt="help"
+              />
+              <input
+                type="text"
+                placeholder="1234 1234 1234 1234"
+                class="montserrat-400"
+              />
+            </div>
+
+            <div class="input-container date">
+              <p class="montserrat-600">Expiry Date</p>
+              <input type="text" placeholder="MM / YY" class="montserrat-400" />
+            </div>
+
+            <div class="input-container code">
+              <p class="montserrat-600">Security Code</p>
+              <img
+                class="icon"
+                src="https://img.icons8.com/ios-filled/100/5d616a/help.png"
+                alt="help"
+              />
+              <input type="text" placeholder="CVV" class="montserrat-400" />
+            </div>
+          </div>
+        </div>
+        <div class="buy-now section">
+          <button class="montserrat-700">Buy Now</button>
+          <p class="montserrat-600">Need Help?</p>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
