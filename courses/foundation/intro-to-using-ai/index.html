@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vlad Krichman Portfolio</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <section id="home" class="hero">
+      <div class="hero-content">
+        <h1>Hello, I'm <span class="highlight">Vlad Krichman</span></h1>
+        <p>Web Developer & Designer</p>
+      </div>
+    </section>
+
+    <section id="about" class="about">
+      <h2>About Me</h2>
+      <div class="about-text">
+        <p>
+          Hi! I'm learning web development while building responsive and
+          user-friendly websites.
+        </p>
+      </div>
+      <h3>My skills</h3>
+      <div class="skills-grid">
+        <div class="skill-box">
+          <img
+            width="100"
+            height="100"
+            src="https://img.icons8.com/ios-filled/100/FFFFFF/source-code.png"
+            alt="web-development-icon"
+          />
+          <h3>Web Development</h3>
+          <p>
+            Building responsive and interactive websites using HTML, CSS, and
+            JavaScript.
+          </p>
+        </div>
+        <div class="skill-box">
+          <img
+            width="100"
+            height="100"
+            src="https://img.icons8.com/fluency-systems-filled/100/FFFFFF/illustrator.png"
+            alt="design-tools-icon"
+          />
+          <h3>Design Tools</h3>
+          <p>
+            Skilled in Figma, Photoshop, and Illustrator for creating clean,
+            visually appealing designs.
+          </p>
+        </div>
+        <div class="skill-box">
+          <img
+            width="100"
+            height="100"
+            src="https://img.icons8.com/material-sharp/100/FFFFFF/reading--v1.png"
+            alt="eager-learner-icon"
+          />
+
+          <h3>Eager Learner</h3>
+          <p>
+            Currently expanding my knowledge of Git and GitHub to enhance
+            collaboration.
+          </p>
+        </div>
+        <div class="skill-box">
+          <img
+            width="100"
+            height="100"
+            src="https://img.icons8.com/ios-filled/100/FFFFFF/conference-call.png"
+            alt="soft-skills-icon"
+          />
+          <h3>Soft Skills</h3>
+          <p>
+            Creative thinker and team player, with a strong passion for
+            storytelling through design and development.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="projects">
+      <h2>My Projects</h2>
+      <div class="project-grid">
+        <article class="project-card">
+          <img src="./pictures/movie-app-cover.png" alt="Movie App" />
+          <h3>MovieApp</h3>
+          <p>MovieApp is a concept of a movie search application</p>
+          <a href="https://movieapp-vladkrichman.netlify.app/" class="button"
+            >View Project</a
+          >
+        </article>
+        <article class="project-card">
+          <img src="./pictures/synth-project-cover.png" alt="Synth Project" />
+          <h3>Synth Project</h3>
+          <p>
+            This project explores the possibilities within the Web Audio API
+          </p>
+          <a href="https://synth-project-vk.netlify.app/" class="button"
+            >View Project</a
+          >
+        </article>
+      </div>
+    </section>
+
+    <section id="contact" class="contact">
+      <h2>Contact Me</h2>
+      <form id="contact-form">
+        <div class="form-group">
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" required />
+        </div>
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required />
+        </div>
+        <div class="form-group">
+          <label for="message">Message:</label>
+          <textarea id="message" name="message" required></textarea>
+        </div>
+        <button type="submit" class="button">Send Message</button>
+      </form>
+    </section>
+
+    <footer>
+      <p>&copy; 2025 Vlad Krichman. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
