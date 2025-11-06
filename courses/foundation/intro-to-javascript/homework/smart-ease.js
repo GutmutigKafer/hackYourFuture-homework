@@ -11,7 +11,7 @@ const dogYearOfBirth = 2010;
 const dogYearFuture = 2025;
 const shouldShowResultInDogYears = true;
 const dogYear = (birth, future, isDogYears) => {
-  let dogAge = future - birth;
+  const dogAge = future - birth;
   console.log(
     `Your dog will be ${
       isDogYears ? dogAge * 7 : dogAge
@@ -21,22 +21,35 @@ const dogYear = (birth, future, isDogYears) => {
 dogYear(dogYearOfBirth, dogYearFuture, shouldShowResultInDogYears);
 
 //* Housey pricey (A house price estimator)
-const petersHouse = [8, 10, 10, 100, 2500000];
-const juliasHouse = [5, 11, 8, 70, 1000000];
+const Peter = {
+  name: "Peter",
+  width: 8,
+  depth: 10,
+  height: 10,
+  garden: 100,
+  price: 2500000,
+};
+const Julia = {
+  name: "Julia",
+  width: 5,
+  depth: 11,
+  height: 8,
+  garden: 70,
+  price: 1000000,
+};
 
-const getRecommendedPrice = (houseProperties) => {
-  const [width, depth, height, garden, price] = houseProperties;
-  const volume = width * depth * height;
-  const recommendedPrice = volume * 2.5 * 1000 + garden * 300;
-  const isGoodPrice = recommendedPrice > price;
+const getRecommendedPrice = (buyer) => {
+  const volume = buyer.width * buyer.depth * buyer.height;
+  const recommendedPrice = volume * 2.5 * 1000 + buyer.garden * 300;
+  const isGoodPrice = recommendedPrice > buyer.price;
   console.log(
-    `Recommended price for the house: ${recommendedPrice}. You got a ${
-      isGoodPrice ? "Good" : "Bad"
-    } deal!`
+    `Recommended price for the house: ${recommendedPrice}. ${
+      buyer.name
+    } got a ${isGoodPrice ? "Good" : "Bad"} deal!`
   );
 };
-getRecommendedPrice(petersHouse);
-getRecommendedPrice(juliasHouse);
+getRecommendedPrice(Peter);
+getRecommendedPrice(Julia);
 
 //* Ez Namey (Startup name generator)
 const firstWords = [
