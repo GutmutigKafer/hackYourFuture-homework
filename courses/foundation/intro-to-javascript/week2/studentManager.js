@@ -4,7 +4,7 @@ const class07Students = [];
 const addStudentToClass = (studentName) => {
   const isSpace =
     class07Students.length < 6 || studentName === "Queen Margrethe";
-  const isValidName = studentName !== "";
+  const isValidName = studentName.trim() !== "";
   const isInClass = class07Students.includes(studentName);
   let message = "";
 
@@ -33,7 +33,7 @@ console.log(addStudentToClass("Anna"));
 console.log(addStudentToClass("Maria"));
 console.log(addStudentToClass("Josh"));
 console.log(addStudentToClass("Alberte"));
-console.log(addStudentToClass("Anita"));
+console.log(addStudentToClass("   "));
 console.log(addStudentToClass("Esther"));
 console.log(addStudentToClass("Queen Margrethe"));
 

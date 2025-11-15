@@ -1,6 +1,7 @@
 // Weather wear
 
 const whatToWear = (temp) => {
+  if (typeof temp !== "number") return `Please enter valid temperature`;
   switch (true) {
     case temp >= 40:
       return "You don't need to wear anything!";
