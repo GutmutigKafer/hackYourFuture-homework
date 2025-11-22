@@ -38,7 +38,7 @@ function seriesOfMyLife_v1() {
   }
 
   const totalPercentage = ((totalMinutes / minutesInLife) * 100).toFixed(4);
-  console.log(`In total that is ${totalPercentage}% of my life`);
+  return `In total that is ${totalPercentage}% of my life`;
 }
 
 // seriesOfMyLife_v1();
@@ -59,5 +59,3 @@ const seriesOfMyLife_v2 = (mySeries, lifeYears) => {
     .reduce((total, one) => total + one);
   return `In total that is ${percentage(totalMinutes)}% of my life`;
 };
-
-console.log(seriesOfMyLife_v2(seriesDurations, 80));

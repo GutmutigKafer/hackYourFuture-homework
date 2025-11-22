@@ -11,8 +11,6 @@ function travelInfoToTime_v1() {
   return `${hours} hours and ${minutes} minutes`;
 }
 
-// console.log(travelInfoToTime_v1());
-
 const travelInfoToTime_v2 = (info) => {
   if (!info.speed || typeof info.speed !== "number") return "Enter valid speed";
   const time = info.destinationDistance / info.speed;
@@ -20,5 +18,3 @@ const travelInfoToTime_v2 = (info) => {
   const minutes = Math.floor(time * 60 - hours * 60);
   return (hours ? `${hours} hours and ` : "") + `${minutes} minutes`;
 };
-
-console.log(travelInfoToTime_v2(travelInformation));

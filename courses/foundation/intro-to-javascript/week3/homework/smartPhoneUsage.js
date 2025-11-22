@@ -21,15 +21,6 @@ const showStatus = (activities, limit) => {
     return `You have reached your limit, no more smartphoning for you!`;
   }
 };
-console.log(showStatus(activities, timeLimit));
-console.log(addActivity("15.02.22", "Youtube", 45));
-console.log(addActivity("16.02.22", "News", 27));
-console.log(addActivity("17.02.22", "Instagram", 36));
-console.log(addActivity("16.02.22", "Facebook", 40));
-console.log(addActivity("16.02.22", "TikTok", 50));
-console.log(activities);
-
-console.log(showStatus(activities, timeLimit));
 
 const historyByDate = {};
 const storeByDate = (activities) => {
@@ -43,7 +34,6 @@ const storeByDate = (activities) => {
   }
   return historyByDate;
 };
-console.log(storeByDate(activities));
 
 const oneDayActivity = (date) => {
   const dataFormat = /^(0[1-9]|[12]\d|3[01]).(0[1-9]|1[0-2]).(\d{2})$/;
@@ -58,5 +48,3 @@ const oneDayActivity = (date) => {
     return `No activities found for ${date}.`;
   }
 };
-console.log(oneDayActivity("16.02.22"));
-console.log(oneDayActivity("15.02.22"));

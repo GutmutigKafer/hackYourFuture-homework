@@ -19,7 +19,6 @@ const removeName_v1 = () => {
   }
   return names;
 };
-console.log(removeName_v1());
 
 const removeName_v2 = (name, startFrom = 0) => {
   if (!names.includes(name)) return `${name} is not on the list`;
@@ -29,4 +28,3 @@ const removeName_v2 = (name, startFrom = 0) => {
     ", "
   )}`;
 };
-// console.log(removeName_v2(nameToRemove, 3));
