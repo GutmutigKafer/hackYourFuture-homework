@@ -1,73 +1,74 @@
-let currentName = "";
-let helloCount = 0;
-const toDoList = [];
+const userData = {
+  currentName: "",
+  toDoList: [],
+};
 
 const getReply = (command) => {
+  if (!command.trim()) return `Please enter a valid command`;
   const commandLower = command.toLowerCase();
-  if (commandLower.includes("hello") || commandLower.includes("my name is"))
-    return helloReply(command);
-  if (commandLower.includes("what is my name")) return whatName();
-  if (commandLower.includes("add") || commandLower.includes("to my todo"))
-    return addToDo(command);
-  if (commandLower.includes("remove") || commandLower.includes("from my todo"))
-    return removeToDo(command);
-  if (
-    commandLower.includes("what is on") ||
-    commandLower.includes("on my todo")
-  )
-    return whatsOnToDo();
-  if (
-    commandLower.includes("what day") ||
-    commandLower.includes("date") ||
-    commandLower.includes("today")
-  )
-    return whatDay();
+  if (commandLower.includes("hello my name is")) return helloReply(command);
+  if (commandLower.includes("my name")) return whatName();
+  if (commandLower.includes("add")) return addToDo(command);
+  if (commandLower.includes("remove")) return removeToDo(command);
+  if (commandLower.includes("on my todo")) return whatsOnToDo();
+  if (commandLower.includes("what day is it today")) return whatDay();
   if (commandLower.includes("what is")) return simpleMath(command);
-  if (
-    commandLower.includes("set a timer") ||
-    commandLower.includes("timer for")
-  )
-    return setTimer(command);
+  if (commandLower.includes("set a timer for")) return setTimer(command);
+
+  return `Please enter a valid command`;
 };
 
 const helloReply = (command) => {
-  const newName = command.split(" ").pop();
-  if (newName === currentName) helloCount++;
-  currentName = newName;
-  return `${helloCount ? "Hello again" : "Nice to meet you"} ${currentName}`;
+  const newName = command.slice(command.indexOf("is ") + 3).trim();
+  if (!newName.trim()) return `Please enter a valid name`;
+  if (newName === userData.currentName)
+    return `Hello again ${userData.currentName}`;
+  else {
+    userData.currentName = newName;
+    return `Nice to meet you ${userData.currentName}`;
+  }
 };
 
 const whatName = () => {
-  return currentName ? `Your name is ${currentName}` : "I don't know your name";
+  return userData.currentName
+    ? `Your name is ${userData.currentName}`
+    : "I don't know your name";
 };
 
 const getTaskName = (command, start) => {
-  const allWords = command.split(" ");
-  const task = allWords.slice(1, allWords.indexOf(start)).join(" ");
+  const allWords = command.toLowerCase().split(" ");
+  const task = allWords
+    .slice(allWords.indexOf(start) + 1, allWords.indexOf("my todo") - 3)
+    .join(" ");
+  console.log(task);
   if (!task) return `Please enter valid command (add to/ remove from)`;
   const taskUpper = task.charAt(0).toUpperCase() + task.slice(1).trim();
   return taskUpper;
 };
 
 const addToDo = (command) => {
-  const taskName = getTaskName(command, "to");
-  if (toDoList.includes(taskName)) return `This task is already on the list!`;
-  toDoList.push(taskName);
+  const taskName = getTaskName(command, "add");
+  if (userData.toDoList.includes(taskName))
+    return `This task is already on the list!`;
+  userData.toDoList.push(taskName);
   return `~${taskName}~ added to your ToDo list`;
 };
 
 const removeToDo = (command) => {
-  const taskName = getTaskName(command, "from");
-  if (!toDoList.includes(taskName)) return `This task is not on the list!`;
-  toDoList.splice(toDoList.indexOf(taskName), 1);
+  const taskName = getTaskName(command, "remove");
+  if (!userData.toDoList.includes(taskName))
+    return `This task is not on the list!`;
+  userData.toDoList.splice(userData.toDoList.indexOf(taskName), 1);
   return `Removed ~${taskName}~ from your ToDo list`;
 };
 
 const whatsOnToDo = () => {
-  if (!toDoList) return `There is nothing on your ToDo list`;
-  const listLength = toDoList.length;
+  const listLength = userData.toDoList.length;
+  if (!listLength) return `There is nothing on your ToDo list`;
   return `You have ${listLength} ToDo's on the list: ${
-    listLength === 2 ? toDoList.join(" and ") : toDoList.join(", ")
+    listLength === 2
+      ? userData.toDoList.join(" and ")
+      : userData.toDoList.join(", ")
   }`;
 };
 
@@ -83,45 +84,41 @@ const whatDay = () => {
 
 const simpleMath = (command) => {
   const allWords = command.split(" ");
-  const expression = allWords.slice(2).join(" ");
+  const expression = allWords.slice(2).join("");
   const validSymbols = /^[\d+\-*/() ]+$/;
-  return validSymbols.test(expression)
-    ? eval(expression)
-    : `Please enter a valid expression`;
+  if (!validSymbols.test(expression)) return `Please enter a valid expression`;
+  return new Function(`return ${expression}`)();
 };
 
 const setTimer = (command) => {
-  const allWords = command.split(" ");
-  const timeNumber = allWords.slice(allWords.indexOf("for") + 1, -1);
-  const timeWord = allWords.pop().toLowerCase();
-  let multiplier = 1;
+  if (!command.trim()) return `Please enter a valid command`;
+  const allWords = command.slice(command.indexOf("for") + 4).split(" ");
+  let timeNumber;
+  let timeWord;
+  let totalDuration = 0;
+  for (let one of allWords) {
+    const parsedNumber = Number.parseInt(one);
+    if (!Number.isNaN(parsedNumber)) {
+      timeNumber = one;
+    } else if (typeof one === "string") {
+      timeWord = one;
+      let timerDuration;
+      if (timeWord.includes("sec")) {
+        timerDuration = timeNumber * 1000;
+      } else if (timeWord.includes("min")) {
+        timerDuration = timeNumber * 60000;
+      } else if (timeWord.includes("hour")) {
+        timerDuration = timeNumber * 360000;
+      } else return `Please enter correct time interval (sec/min/hour)`;
 
-  if (timeWord.includes("sec")) {
-    multiplier = 1000;
-  } else if (timeWord.includes("min")) {
-    multiplier = 60000;
-  } else if (timeWord.includes("hour")) {
-    multiplier = 360000;
-  } else return `Please enter correct time interval (sec/min/hour)`;
-  const timerDuration = timeNumber * multiplier;
+      totalDuration += timerDuration;
+    }
+  }
   const doneTimer = () => {
     console.log(`Timer done`);
   };
 
-  setTimeout(doneTimer, timerDuration);
+  setTimeout(doneTimer, totalDuration);
 
-  return `Timer set for ${timeNumber} ${timeWord}`;
+  return `Timer set for ${allWords.join(" ")}`;
 };
-
-console.log(getReply("Hello, my name is Vlad"));
-console.log(getReply("Hello, my name is Vlad"));
-console.log(getReply("What is my name?"));
-console.log(getReply("Add playing to my todo list"));
-console.log(getReply("Add coding to my todo list"));
-console.log(getReply("Add cleaning to my todo list"));
-console.log(getReply("Remove playing from my todo list"));
-console.log(getReply("tell me what is on my todo list"));
-console.log(getReply("what day is it today?"));
-console.log(getReply("what is 3 * 6"));
-console.log(getReply("what is (3 + 6) * 10"));
-console.log(getReply("set timer for 3 seconds"));
