@@ -16,20 +16,97 @@ const knex = knexLibrary({
   useNullAsDefault: true,
 });
 
+app.get("/", async (req, res) => {
+  const userCount = await getUserCount();
+  const page = renderMainPage(userCount);
+  res.send(page);
+});
+
+app.get("/:tableName", async (req, res) => {
+  const { tableName } = req.params;
+
+  const tableExists = await knex.schema.hasTable(tableName);
+  if (!tableExists) return notFound(req, res);
+
+  if (!tableName) {
+    const tables = await getAllTables();
+    res.json(tables);
+    return;
+  }
+
+  const data = await selectAllFromTable(tableName);
+  return res.json(data);
+});
+
+app.get("/task/sort-by-due", async (req, res) => {
+  const tasksDue = await tasksByDue();
+  return res.json(tasksDue);
+});
+
+app.get("/task/not-done", async (req, res) => {
+  const tasks = await tasksNotDone();
+  return res.json(tasks);
+});
+
+app.get("/user/:lastName", async (req, res) => {
+  const { lastName } = req.params;
+  const user = await userByLast(lastName);
+  if (!user) return notFound(req, res);
+  return res.json(user);
+});
+
+app.get("/user-count", async (req, res) => {
+  const count = await getUserCount();
+  return res.json({ count });
+});
+
+app.listen(PORT, () => {
+  console.log(`Server ready on http://localhost:${PORT}`);
+});
+
+//----------------------------//
+
 const getAllTables = async () => {
-  const tables = await knex.raw(`SELECT name FROM sqlite_schema`);
-  return tables;
+  const data = await knex.raw(`SELECT name FROM sqlite_schema`);
+  return data;
 };
 
 const getUserCount = async () => {
-  const result = await knex.raw(`SELECT COUNT(id) AS count FROM user`);
-  return result[0]?.count || 0;
+  const data = await knex.raw(`SELECT COUNT(id) AS count FROM user`);
+  return data[0]?.count || 0;
 };
 
-app.get("/", async (req, res) => {
-  const userCount = await getUserCount();
+const selectAllFromTable = async (tableName) => {
+  const data = await knex.raw(`SELECT * FROM ${tableName}`);
+  return data;
+};
 
-  const html = `
+const tasksByDue = async () => {
+  const data = await knex.raw(
+    `SELECT title, due_date, s.name FROM task JOIN status s ON status_id = s.id ORDER BY due_date ASC`
+  );
+  return data;
+};
+
+const tasksNotDone = async () => {
+  const data = await knex.raw(
+    `SELECT title, due_date, s.name FROM task JOIN status s ON status_id = s.id  WHERE status_id IN (1, 2) ORDER BY due_date ASC`
+  );
+  return data;
+};
+
+const userByLast = async (lastName) => {
+  const data = knex.raw(`SELECT * FROM user WHERE name LIKE '%${lastName}%'`);
+  return data;
+};
+
+const notFound = async (req, res) => {
+  const html = renderNotFound(req.originalUrl);
+  return res.status(404).send(html);
+};
+
+const renderMainPage = (userCount) => {
+  return `
     <!DOCTYPE html>
     <html lang="en" className="scroll-smooth">
     <head>
@@ -128,56 +205,10 @@ app.get("/", async (req, res) => {
         </div>
     </body>
     </html>`;
+};
 
-  res.send(html);
-});
-
-app.get("/:tableName", async (req, res) => {
-  const { tableName } = req.params;
-
-  if (!tableName) {
-    const tables = await getAllTables();
-    res.json(tables);
-    return;
-  }
-
-  const tableExists = await knex.schema.hasTable(tableName);
-  if (!tableExists) return notFound(req, res);
-
-  const data = await knex.raw(`SELECT * FROM ${tableName}`);
-  return res.json(data);
-});
-
-app.get("/task/sort-by-due", async (req, res) => {
-  const tasksDue = await knex.raw(
-    `SELECT title, due_date, s.name FROM task JOIN status s ON status_id = s.id ORDER BY due_date ASC`
-  );
-  return res.json(tasksDue);
-});
-
-app.get("/task/not-done", async (req, res) => {
-  const tasksNotDone = await knex.raw(
-    `SELECT title, due_date, s.name FROM task JOIN status s ON status_id = s.id  WHERE status_id IN (1, 2) ORDER BY due_date ASC`
-  );
-  return res.json(tasksNotDone);
-});
-
-app.get("/user/:lastName", async (req, res) => {
-  const { lastName } = req.params;
-  const userByLast = await knex.raw(
-    `SELECT * FROM user WHERE name LIKE '%${lastName}%'`
-  );
-  if (!userByLast) return notFound(req, res);
-  return res.json(userByLast);
-});
-
-app.get("/user-count", async (req, res) => {
-  const count = await getUserCount();
-  return res.json({ count });
-});
-
-const notFound = async (req, res) => {
-  const htmlNotFound = `
+const renderNotFound = (originalUrl) => {
+  return `
 <!DOCTYPE html>
     <html>
     <head>
@@ -264,7 +295,7 @@ const notFound = async (req, res) => {
             <h1 class="error-code">404</h1>
             <p class="error-message">Page not found</p>
             <a href="/" class="back-btn">Go to Homepage</a>
-            <p class="error-hint">The requested URL ${req.originalUrl} was not found</p>
+            <p class="error-hint">The requested URL ${originalUrl} was not found</p>
         </div>
         
         <div class="endpoints">
@@ -279,9 +310,4 @@ const notFound = async (req, res) => {
     </body>
     </html>
 `;
-  return res.status(404).send(htmlNotFound);
 };
-
-app.listen(PORT, () => {
-  console.log(`Server ready on http://localhost:${PORT}`);
-});
