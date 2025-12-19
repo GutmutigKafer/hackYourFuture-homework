@@ -1,13 +1,11 @@
 {
-  "name": "intro-to-backend",
+  "name": "intro-to-backend-homework",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "homework.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "exercise1": "nodemon exercise1.js",
-    "exercise2": "nodemon exercise2.js",
-    "data-examples": "nodemon data-examples.js"
+    "homework": "nodemon homework.js"
   },
   "keywords": [],
   "author": "",
