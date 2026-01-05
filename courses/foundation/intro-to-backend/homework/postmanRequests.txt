@@ -1,0 +1,28 @@
+GET
+5 random dog images
+https://dog.ceo/api/breeds/image/random/5
+200 OK
+
+
+GET
+All dog breeds
+https://dog.ceo/api/breeds/list/all
+200 OK
+
+
+GET
+3 "beagle" images
+https://dog.ceo/api/breed/beagle/images/random/3
+200 OK
+
+
+GET
+Sub-breeds of poodle
+https://dog.ceo/api/breed/poodle/list
+200 OK
+
+
+GET
+All images from "toy poodle"
+https://dog.ceo/api/breed/poodle/toy/images
+200 OK
