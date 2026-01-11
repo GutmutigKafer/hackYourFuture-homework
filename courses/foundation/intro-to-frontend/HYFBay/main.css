@@ -1,6 +1,7 @@
 body {
   font-family: "Open Sans", sans-serif;
-  background-color: #f9fbfd;
+  background-color: #a8a8a8;
+  padding: 0;
 }
 
 * {
@@ -13,8 +14,47 @@ h2 {
   margin: 0;
 }
 
-ul {
+main {
+  padding: 2rem;
+  text-align: center;
+}
+
+h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.product-list {
   list-style-type: none;
   margin: 0;
   padding: 0;
+}
+
+.product-list-item {
+  background-color: #f9f9f9;
+  width: 50%;
+  padding: 1rem;
+  border-radius: 5px;
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-self: center;
+}
+
+.title {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.price {
+  font-size: 1.2rem;
+  color: #666;
+  margin-bottom: 0.5rem;
+}
+
+.rating {
+  font-size: 1rem;
+  color: #999;
+  margin-bottom: 0.5rem;
 }
