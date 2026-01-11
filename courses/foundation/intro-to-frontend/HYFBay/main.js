@@ -7,10 +7,11 @@ const list = document.querySelector(".product-list");
 const renderProducts = (products) => {
   products.forEach((one) => {
     const product = document.createElement("li");
+    product.className = ".product-list-item";
     product.innerHTML = `
-    <h3 class="title">${one.name}</h3>
-<h5 class="price">${one.price}</h5>
-<h5 class="rating">${one.rating}/10</h5>
+    <h2 class="title">${one.name}</h2>
+<h3 class="price">${one.price}</h3>
+<h3 class="rating">${one.rating}/10</h3>
  `;
     list.appendChild(product);
   });

@@ -1,7 +1,4 @@
 body {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   padding: 20% 20% 0 20%;
 }
 h1 {
@@ -18,19 +15,18 @@ h1 {
 }
 
 input {
-  margin-top: 1rem;
-  height: 2rem;
+  line-height: 1rem;
+  padding: 0.5rem;
   min-width: 300px;
   max-width: 500px;
 }
 
 button {
-  margin-top: 1rem;
-  height: 2rem;
+  line-height: 1rem;
+  padding: 0.5rem;
 }
 
 .result-card {
-  position: relative;
   margin-top: 2rem;
   background-color: white;
   padding: 1rem;
@@ -41,5 +37,4 @@ button {
 
 .result-card.show {
   display: block;
-  z-index: 2;
 }

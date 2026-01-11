@@ -30,21 +30,20 @@ h2 {
   padding: 0;
 }
 
-.product-list li {
+.product-list-item {
   background-color: #f9f9f9;
-  border-radius: 5px;
+  width: 50%;
   padding: 1rem;
+  border-radius: 5px;
   margin-bottom: 1rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 50%;
   justify-self: center;
 }
 
 .title {
   font-size: 1.5rem;
-  font-weight: bold;
   margin-bottom: 0.5rem;
 }
 
