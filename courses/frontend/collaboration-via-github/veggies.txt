@@ -1,5 +1,10 @@
 Tomato
 Cucumber
+Kale
+Pepper
+Carrot
+Zucchini
+Spinach
 Asparagus
 Pepper
 Carrot
